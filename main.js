@@ -27,24 +27,32 @@ function getComputerChoice() {
 
 let winCount = 0;
 let loseCount = 0;
+let gameCount = 0;
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "It is a tie";
     } else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-        return winCount++;
+        winCount++;
+        gameCount++;
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-        return loseCount++;
+        loseCount++;
+        gameCount++;
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
+    while (gameCount < 5) {
         let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
+    }
+    if (winCount > loseCount) {
+        console.log("You won! Player wins the game");
+    } else {
+        console.log("You lost! Computer wins the game");
     }
 }
 
