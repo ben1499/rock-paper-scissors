@@ -3,7 +3,7 @@
 //convert user choice to lowercase
 //Compare both choices and return result string
 //Run 5 times
-//Show winner or loser at end
+//Show winner or loser at end based on a win loss counter
 
 
 function getPlayerChoice() {
@@ -24,20 +24,28 @@ function getComputerChoice() {
 }
 
 
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
 
+let winCount = 0;
+let loseCount = 0;
 
 function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection);
     if (playerSelection === computerSelection) {
         return "It is a tie";
     } else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+        return winCount++;
     } else {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+        return loseCount++;
     }
 }
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+game();
