@@ -5,6 +5,9 @@
 //Run 5 times
 //Show winner or loser at end
 
+let userSelection = prompt("Enter your choice: ");
+userSelection = userSelection.toLowerCase();
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3)
     if (randomNumber === 0) {
