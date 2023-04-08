@@ -9,7 +9,12 @@
 function getPlayerChoice() {
     let playerSelection = prompt("Enter your choice: ");
     playerSelection = playerSelection.toLowerCase();
-    return playerSelection;
+    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+        return playerSelection;
+    } else {
+        return;
+    }
+   
 }
 
 function getComputerChoice() {
@@ -30,7 +35,9 @@ let loseCount = 0;
 let gameCount = 0;
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+    if (!playerSelection) {
+        return "Invalid choice";
+    } else if (playerSelection === computerSelection) {
         return "It is a tie";
     } else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
         winCount++;
