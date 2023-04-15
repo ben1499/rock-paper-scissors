@@ -50,6 +50,9 @@ header {
     margin-top: 20px;
 }
 
+button {
+    border: none;
+}
 
 img {
     width: 200px;
