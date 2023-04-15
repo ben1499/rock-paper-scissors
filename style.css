@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,100&display=swap');
+
 .wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
     height: 100vh;
     margin: 0;
-    font-family: sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 18px;
 }
 
@@ -46,12 +48,14 @@ header {
 .choices {
     display: flex;
     justify-content: center;
-    gap: 28px;
+    gap: 38px;
     margin-top: 20px;
 }
 
 button {
     border: none;
+    padding: 0;
+    background: inherit;
 }
 
 img {
@@ -65,8 +69,20 @@ img:hover {
     transform:scale(1.03);
 }
 
+#output {
+    font-size: 22px;
+    margin-top: 8px;
+}
+
+#result {
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 25px;
+    
+}
+
 footer {
     background-color: #1f2937;
-    color: #fff;
+    color: #e5e7eb;
     padding: 20px;
 }

@@ -7,6 +7,11 @@
 
 const buttons = document.querySelectorAll('button');
 const output = document.querySelector('#output');
+const result = document.querySelector('#result');
+
+const playerScore = document.querySelector('.player-score');
+const computerScore = document.querySelector('.computer-score');
+
 
 buttons.forEach((button) => button.addEventListener('click', playRound));
 
@@ -37,23 +42,43 @@ function getComputerChoice() {
 
 let winCount = 0;
 let loseCount = 0;
-let gameCount = 0;
+//let gameCount = 0;
 
 function playRound(e) {
-    output.textContent = '';
-    const playerSelection = this.classList.value;
-    const computerSelection = getComputerChoice();
+    result.textContent = '';
+    console.log(winCount);
+    //output.textContent = '';
+    let playerSelection = this.classList.value;
+    let computerSelection = getComputerChoice();
     console.log(playerSelection);
     if (playerSelection === computerSelection) {
-        return output.innerText = `It is a tie! \n ${playerSelection} ties with ${computerSelection}`;
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+        output.innerText = `It is a tie! \n ${playerSelection} ties with ${computerSelection}`;
     } else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
         winCount++;
-        gameCount++;
-        return output.innerText = `You Won! \n${playerSelection} beats ${computerSelection}`;
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+        playerScore.textContent = winCount;
+        output.innerText = `You Won! \n${playerSelection} beats ${computerSelection}`;
     } else {
         loseCount++;
-        gameCount++;
-        return output.innerText = `You Lost! \n${computerSelection} beats ${playerSelection}`;
+        computerScore.textContent = loseCount;
+        computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+        output.innerText = `You Lost! \n${computerSelection} beats ${playerSelection}`;
+    }
+    if (winCount === 5) {
+        result.textContent = "You have won the game!!";
+        winCount = 0;
+        loseCount = 0;
+        playerScore.textContent = '?';
+        computerScore.textContent = '?';
+        return;
+    } else if (loseCount === 5) {
+        result.textContent = "You lost! Computer won the game!!";
+        winCount = 0;
+        loseCount = 0;
+        playerScore.textContent = '?';
+        computerScore.textContent = '?';
+        return;
     }
 }
 
