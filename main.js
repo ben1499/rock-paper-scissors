@@ -50,17 +50,17 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    while (gameCount < 5) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    if (winCount > loseCount) {
-        console.log("You won! Player wins the game");
-    } else {
-        console.log("You lost! Computer wins the game");
-    }
-}
+// function game() {
+//     while (gameCount < 5) {
+//         let playerSelection = getPlayerChoice();
+//         let computerSelection = getComputerChoice();
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+//     if (winCount > loseCount) {
+//         console.log("You won! Player wins the game");
+//     } else {
+//         console.log("You lost! Computer wins the game");
+//     }
+// }
 
-game();
+// game();
